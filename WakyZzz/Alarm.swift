@@ -6,52 +6,74 @@
 //  Copyright © 2018 Olga Volkova OC. All rights reserved.
 //
 
-import Foundation 
+import Foundation
+import UserNotifications
 
 class Alarm { 
-    
-    static let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-    
-    var time = 8 * 360
-    var repeatDays = [false, false, false, false, false, false, false]
-    var enabled = true
-    
-    var alarmDate: Date? {
-        let date = Date()
-        let calendar = Calendar.current
-        let h = time/3600
-        let m = time/60 - h * 60
-        
-        var components = calendar.dateComponents([.hour, .minute, .month, .year, .day, .second, .weekOfMonth], from: date as Date)
-        
-        components.hour = h
-        components.minute = m
-        
-        return calendar.date(from: components)
+  
+  static let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+  
+  var date = Date()
+  
+  var repeatDays = [false, false, false, false, false, false, false]
+  var enabled = true
+  
+  private var notificationsController = NotificationsController()
+  
+  var time: DateComponents {
+    var calendar = Calendar.current
+    calendar.timeZone = .current
+    return calendar.dateComponents([.hour, .minute, .second], from: self.date as Date)
+  }
+  
+  var caption: String {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .none
+    formatter.timeStyle = .short
+    return formatter.string(from: self.date)
+  }
+  
+  var repeating: String {
+    var captions = [String]()
+    for i in 0 ..< repeatDays.count {
+      if repeatDays[i] {
+        captions.append(Alarm.daysOfWeek[i])
+      }
     }
+    return captions.count > 0 ? captions.joined(separator: ", ") : "One time alarm"
+  }
+  
+  func setOn() {
+    self.notificationsController.registerNotifications(repeatDays: self.repeatDays,
+                                                       dateComponents:  self.time)
+  }
+  
+  func setOff() {
+    self.notificationsController.removeNotifications()
+  }
+  
+  func reset() {
+    setOff()
+    setOn()
+  }
+  
+  func setTime(date: Date) {
+    self.date = date
+  }
+  
+  func setTime(hour: Int, minute: Int = 0, second: Int = 0) {
+    var calendar = Calendar.current
+    calendar.timeZone = .current
     
-    var caption: String {        
-        let formatter = DateFormatter()
-        formatter.dateStyle = .none
-        formatter.timeStyle = .short
-        return formatter.string(from: self.alarmDate!)
-    }
+    var components = calendar.dateComponents([.hour, .minute, .second, .day, .month, .year],
+                                             from: date as Date)
     
-    var repeating: String {
-        var captions = [String]()
-        for i in 0 ..< repeatDays.count {
-            if repeatDays[i] {
-                captions.append(Alarm.daysOfWeek[i])
-            }
-        }
-        return captions.count > 0 ? captions.joined(separator: ", ") : "One time alarm"
-    }
+    components.hour = hour < 24 ? hour : 0
+    components.minute = minute < 60 ? minute : 0
+    components.second = second < 60 ? second : 0
     
-    func setTime(date: Date) {
-        let calendar = Calendar.current
-        var components = calendar.dateComponents([.hour, .minute, .month, .year, .day, .second, .weekOfMonth], from: date as Date)
-        
-        time = components.hour! * 3600 + components.minute! * 60        
+    if let date = calendar.date(from: components) {
+      self.date = date
     }
-
+  }
 }

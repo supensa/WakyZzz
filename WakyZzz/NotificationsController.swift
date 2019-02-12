@@ -11,8 +11,8 @@ import UserNotifications
 
 class NotificationsController {
   
-  private var identifiers = [String]()
   var repeatDays: [Bool]!
+  private var identifiers = Dictionary<String,[String]>()
   
   func isOneTimeAlarm() -> Bool {
     for i in 0 ..< repeatDays.count {
@@ -23,27 +23,44 @@ class NotificationsController {
     return true
   }
   
-  func registerNotifications(repeatDays: [Bool], dateComponents: DateComponents) {
+  func reset(alarmId: String,
+             repeatDays: [Bool],
+             dateComponents: DateComponents,
+             isWithHighSound: Bool = false) {
+    self.removeAll(alarmId: alarmId)
+    self.register(alarmId: alarmId,
+                  repeatDays: repeatDays,
+                  dateComponents: dateComponents,
+                  isWithHighSound: isWithHighSound)
+  }
+  
+  func register(alarmId: String,
+                repeatDays: [Bool],
+                dateComponents: DateComponents,
+                isWithHighSound: Bool = false) {
     self.repeatDays = repeatDays
     let content = self.createNotificationContent()
     if self.isOneTimeAlarm() {
       let trigger = createNotificationTrigger(weekDay: nil, dateComponents: dateComponents)
-      self.registerNotification(content: content, trigger: trigger)
+      self.registerNotification(alarmId: alarmId, content: content, trigger: trigger)
     } else {
       for weekday in 0..<self.repeatDays.count {
         if self.repeatDays[weekday] {
           let trigger = createNotificationTrigger(weekDay: weekday, dateComponents: dateComponents)
-          self.registerNotification(content: content, trigger: trigger)
+          self.registerNotification(alarmId: alarmId, content: content, trigger: trigger)
         }
       }
     }
   }
   
-  func removeNotifications() {
+  func removeAll(alarmId: String) {
     // Remove scheduled request with the system.
-    let notificationCenter = UNUserNotificationCenter.current()
-    notificationCenter.removePendingNotificationRequests(withIdentifiers: self.identifiers)
-    notificationCenter.removeDeliveredNotifications(withIdentifiers: self.identifiers)
+    if let array = self.identifiers[alarmId] {
+      let notificationCenter = UNUserNotificationCenter.current()
+      notificationCenter.removePendingNotificationRequests(withIdentifiers: array)
+      notificationCenter.removeDeliveredNotifications(withIdentifiers: array)
+      self.identifiers[alarmId] = nil
+    }
   }
   
   private func createNotificationContent() -> UNMutableNotificationContent {
@@ -59,14 +76,16 @@ class NotificationsController {
     var components = dateComponents
     var repeats = false
     if let weekDay = weekDay {
-      components.weekday = weekDay
+      components.weekday = weekDay + 1
       repeats = true
     }
     // Return the trigger as a repeating event.
     return UNCalendarNotificationTrigger(dateMatching: components, repeats: repeats)
   }
   
-  private func registerNotification(content: UNNotificationContent, trigger: UNNotificationTrigger) {
+  private func registerNotification(alarmId: String,
+                                    content: UNNotificationContent,
+                                    trigger: UNNotificationTrigger) {
     let notificationCenter = UNUserNotificationCenter.current()
     
     notificationCenter.getNotificationSettings {
@@ -74,13 +93,12 @@ class NotificationsController {
       // Do not schedule notifications if not authorized.
       guard settings.authorizationStatus == .authorized else {return}
       
-      self.addRequest(content: content, trigger: trigger)
+      self.addRequest(alarmId: alarmId, content: content, trigger: trigger)
     }
   }
   
-  private func addRequest(content: UNNotificationContent, trigger: UNNotificationTrigger) {
+  private func addRequest(alarmId: String, content: UNNotificationContent, trigger: UNNotificationTrigger) {
     let identifier = "WakyZzz_" + UUID().uuidString
-    self.identifiers.append(identifier)
     let request = UNNotificationRequest.init(identifier: identifier,
                                              content: content,
                                              trigger: trigger)
@@ -89,7 +107,12 @@ class NotificationsController {
     let notificationCenter = UNUserNotificationCenter.current()
     notificationCenter.add(request) {
       (error) in
-      if error != nil {
+      if error == nil {
+        if self.identifiers[alarmId] == nil {
+          self.identifiers[alarmId] = [String]()
+        }
+        self.identifiers[alarmId]?.append(identifier)
+      } else {
         // Handle any errors.
         print(error.debugDescription)
       }

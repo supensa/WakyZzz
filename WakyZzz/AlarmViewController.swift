@@ -33,8 +33,7 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
       navigationItem.title = "New Alarm"
       alarm = Alarm()
       alarm?.setTime(hour: 8)
-    }
-    else {
+    } else {
       navigationItem.title = "Edit Alarm"
     }
     

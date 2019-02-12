@@ -10,29 +10,29 @@ import Foundation
 import UIKit
 
 protocol AlarmCellDelegate {
-    func alarmCell(_ cell: AlarmTableViewCell, enabledChanged enabled: Bool)
+  func alarmCell(_ cell: AlarmTableViewCell, enabledChanged enabled: Bool)
 }
 
 class AlarmTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var subcaptionLabel: UILabel!
-    @IBOutlet weak var enabledSwitch: UISwitch!
-    
-    var delegate: AlarmCellDelegate?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
   
-    func populate(caption: String, subcaption: String, enabled: Bool) {
-        captionLabel.text = caption
-        subcaptionLabel.text = subcaption
-        enabledSwitch.isOn = enabled
-    }
-    
-    @IBAction func enabledStateChanged(_ sender: Any) {
-        delegate?.alarmCell(self, enabledChanged: enabledSwitch.isOn)
-    }
-
+  @IBOutlet weak var captionLabel: UILabel!
+  @IBOutlet weak var subcaptionLabel: UILabel!
+  @IBOutlet weak var enabledSwitch: UISwitch!
+  
+  var delegate: AlarmCellDelegate?
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+  }
+  
+  func populate(caption: String, subcaption: String, enabled: Bool) {
+    captionLabel.text = caption
+    subcaptionLabel.text = subcaption
+    enabledSwitch.isOn = enabled
+  }
+  
+  @IBAction func enabledStateChanged(_ sender: Any) {
+    delegate?.alarmCell(self, enabledChanged: enabledSwitch.isOn)
+  }
+  
 }

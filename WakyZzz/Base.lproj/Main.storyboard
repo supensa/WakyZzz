@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="1yg-8g-aiN">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1yg-8g-aiN">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
@@ -59,15 +59,15 @@
                                                 </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="aOW-6I-KN4" firstAttribute="trailing" secondItem="UFv-lQ-eKE" secondAttribute="trailingMargin" id="4Gt-yC-0SI"/>
-                                                <constraint firstItem="FKQ-CR-bhd" firstAttribute="leading" secondItem="UFv-lQ-eKE" secondAttribute="leadingMargin" id="B4e-gH-wvI"/>
-                                                <constraint firstItem="aOW-6I-KN4" firstAttribute="leading" secondItem="FKQ-CR-bhd" secondAttribute="trailing" constant="8" id="Kgq-gU-F9m"/>
-                                                <constraint firstAttribute="trailing" secondItem="ZCN-if-4O3" secondAttribute="trailing" constant="15" id="NWk-ka-8bR"/>
-                                                <constraint firstItem="aOW-6I-KN4" firstAttribute="centerY" secondItem="FKQ-CR-bhd" secondAttribute="centerY" id="RJq-yi-nrb"/>
-                                                <constraint firstItem="FKQ-CR-bhd" firstAttribute="top" secondItem="UFv-lQ-eKE" secondAttribute="topMargin" id="lit-qI-LRB"/>
-                                                <constraint firstAttribute="bottom" secondItem="ZCN-if-4O3" secondAttribute="bottom" constant="7.5" id="ltK-U2-70O"/>
-                                                <constraint firstItem="ZCN-if-4O3" firstAttribute="leading" secondItem="UFv-lQ-eKE" secondAttribute="leading" constant="15" id="usI-zF-FeA"/>
-                                                <constraint firstItem="ZCN-if-4O3" firstAttribute="top" secondItem="FKQ-CR-bhd" secondAttribute="bottom" constant="19" id="wSA-yU-trF"/>
+                                                <constraint firstItem="aOW-6I-KN4" firstAttribute="trailing" secondItem="UFv-lQ-eKE" secondAttribute="trailingMargin" priority="999" id="4Gt-yC-0SI"/>
+                                                <constraint firstItem="FKQ-CR-bhd" firstAttribute="leading" secondItem="UFv-lQ-eKE" secondAttribute="leadingMargin" priority="999" id="B4e-gH-wvI"/>
+                                                <constraint firstItem="aOW-6I-KN4" firstAttribute="leading" secondItem="FKQ-CR-bhd" secondAttribute="trailing" priority="999" constant="8" id="Kgq-gU-F9m"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZCN-if-4O3" secondAttribute="trailing" priority="999" constant="15" id="NWk-ka-8bR"/>
+                                                <constraint firstItem="aOW-6I-KN4" firstAttribute="centerY" secondItem="FKQ-CR-bhd" secondAttribute="centerY" priority="999" id="RJq-yi-nrb"/>
+                                                <constraint firstItem="FKQ-CR-bhd" firstAttribute="top" secondItem="UFv-lQ-eKE" secondAttribute="topMargin" priority="999" id="lit-qI-LRB"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZCN-if-4O3" secondAttribute="bottom" priority="999" constant="7.5" id="ltK-U2-70O"/>
+                                                <constraint firstItem="ZCN-if-4O3" firstAttribute="leading" secondItem="UFv-lQ-eKE" secondAttribute="leading" priority="999" constant="15" id="usI-zF-FeA"/>
+                                                <constraint firstItem="ZCN-if-4O3" firstAttribute="top" secondItem="FKQ-CR-bhd" secondAttribute="bottom" priority="999" constant="19" id="wSA-yU-trF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

@@ -9,16 +9,14 @@
 import Foundation
 import UserNotifications
 
-class Alarm { 
-  
+class Alarm {
   static let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
   
-  var date = Date()
+  private(set) var id = "alarm_" + UUID().uuidString
   
+  var date = Date()
   var repeatDays = [false, false, false, false, false, false, false]
   var enabled = true
-  
-  private var notificationsController = NotificationsController()
   
   var time: DateComponents {
     var calendar = Calendar.current
@@ -42,25 +40,7 @@ class Alarm {
     }
     return captions.count > 0 ? captions.joined(separator: ", ") : "One time alarm"
   }
-  
-  func setOn() {
-    self.notificationsController.registerNotifications(repeatDays: self.repeatDays,
-                                                       dateComponents:  self.time)
-  }
-  
-  func setOff() {
-    self.notificationsController.removeNotifications()
-  }
-  
-  func reset() {
-    setOff()
-    setOn()
-  }
-  
-  func setTime(date: Date) {
-    self.date = date
-  }
-  
+    
   func setTime(hour: Int, minute: Int = 0, second: Int = 0) {
     var calendar = Calendar.current
     calendar.timeZone = .current

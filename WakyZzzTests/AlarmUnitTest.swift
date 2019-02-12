@@ -20,31 +20,6 @@ class AlarmUnitTest: XCTestCase {
   }
   
   func testGivenNoAlarm_WhenNewAlarm_ThenNewAlarmDate() {
-    let alarm = Alarm()
-    let date = Date()
-    let alarmDate = alarm.alarmDate!
-    
-    let dateFomatter = DateFormatter()
-    dateFomatter.timeZone = .current
-    dateFomatter.dateFormat = "yyyy-MM-dd"
-    let stringDate = dateFomatter.string(from: date) + " 08:00:00"
-    
-    dateFomatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-    let stringAlarmDate = dateFomatter.string(from: alarmDate)
-    
-    XCTAssert(stringAlarmDate == stringDate)
-    XCTAssert(alarm.caption == "08:00")
-    XCTAssert(alarm.repeating == "One time alarm")
-    
-    alarm.repeatDays[0] = true
-    alarm.repeatDays[1] = true
-    alarm.repeatDays[4] = true
-    alarm.repeatDays[6] = true
-    
-    XCTAssert(alarm.repeating == "One time alarm")
-    
-    print(alarm.caption)
-    print(alarm.repeating)
   }
   
   func testGivenNewAlarm_WhenSetRepeatingDay_ThenGetRepeatingDaysString() {
@@ -61,11 +36,6 @@ class AlarmUnitTest: XCTestCase {
   }
   
   func testGivenNewAlarm_WhenSetTime_ThenGetTime() {
-    let alarm = Alarm()
-    let date = Date()
-    alarm.setTime(date: date)
-    let time = alarm.time
-    print(date)
-    print(time)
+    
   }
 }

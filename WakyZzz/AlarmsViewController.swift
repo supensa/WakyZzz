@@ -13,6 +13,7 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   @IBOutlet weak var tableView: UITableView!
   
   var alarms = [Alarm]()
+  var notificationsController = NotificationsController()
   var editingIndexPath: IndexPath?
   
   @IBAction func addButtonPress(_ sender: Any) {
@@ -28,8 +29,8 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   func config() {
     tableView.delegate = self
     tableView.dataSource = self
-    self.populateAlarms()
-    self.askNotificationAuthorization()
+    populateAlarms()
+    askNotificationAuthorization()
   }
   
   func askNotificationAuthorization() {
@@ -83,10 +84,12 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     
-    let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+    let delete = UITableViewRowAction(style: .destructive, title: "Delete") {
+      (action, indexPath) in
       self.deleteAlarm(at: indexPath)
     }
-    let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+    let edit = UITableViewRowAction(style: .normal, title: "Edit") {
+      (action, indexPath) in
       self.editAlarm(at: indexPath)
     }
     return [delete, edit]
@@ -99,10 +102,10 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   // TODO: Unit test
   func deleteAlarm(at indexPath: IndexPath) {
     tableView.beginUpdates()
-//    alarms.remove(at: alarms.count)
-    alarms.remove(at: indexPath.row)
+    let alarm = alarms.remove(at: indexPath.row)
     tableView.deleteRows(at: [indexPath], with: .automatic)
     tableView.endUpdates()
+    notificationsController.removeAll(alarmId: alarm.id)
   }
   
   func editAlarm(at indexPath: IndexPath) {
@@ -111,8 +114,8 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   }
   
   func addAlarm(_ alarm: Alarm) {
-    self.alarms.append(alarm)
-    self.updateAlarms()
+    alarms.append(alarm)
+    updateAlarms()
   }
   
   // TODO: Check if useful function ?
@@ -126,9 +129,11 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     if let indexPath = tableView.indexPath(for: cell),
       let alarm = self.alarm(at: indexPath) {
       if enabled {
-        alarm.setOn()
+        notificationsController.register(alarmId: alarm.id,
+                                         repeatDays: alarm.repeatDays,
+                                         dateComponents: alarm.time)
       } else {
-        alarm.setOff()
+        notificationsController.removeAll(alarmId: alarm.id)
       }
       alarm.enabled = enabled
     }
@@ -150,19 +155,21 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   // TODO: Unit testing Edit order of Alarms according to time
   func alarmViewControllerDone(alarm: Alarm) {
     if alarm.enabled {
-      alarm.reset()
+      notificationsController.reset(alarmId: alarm.id,
+                                    repeatDays: alarm.repeatDays,
+                                    dateComponents: alarm.time)
     }
     if let _ = editingIndexPath {
-      self.updateAlarms()
+      updateAlarms()
     } else {
-      self.addAlarm(alarm)
+      addAlarm(alarm)
     }
-    self.tableView.reloadData()
-    self.editingIndexPath = nil
+    tableView.reloadData()
+    editingIndexPath = nil
   }
   
   func updateAlarms() {
-    self.alarms = alarms.sorted(by: { self.ascendingTimeOrdering(firstDate: $0.date, secondDate: $1.date) })
+    alarms = alarms.sorted(by: { self.ascendingTimeOrdering(firstDate: $0.date, secondDate: $1.date) })
   }
   
   private func ascendingTimeOrdering(firstDate: Date, secondDate: Date) -> Bool {
@@ -193,4 +200,3 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
   }
 }
-

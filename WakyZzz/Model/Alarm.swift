@@ -17,8 +17,11 @@ class Alarm {
   var date = Date()
   var repeatDays = [false, false, false, false, false, false, false]
   var enabled = true
+  var isEvil = false
   
-  var time: DateComponents {
+  private var snoozeCount = 0
+  
+  var dateComponents: DateComponents {
     var calendar = Calendar.current
     calendar.timeZone = .current
     return calendar.dateComponents([.hour, .minute, .second], from: self.date as Date)
@@ -40,7 +43,7 @@ class Alarm {
     }
     return captions.count > 0 ? captions.joined(separator: ", ") : "One time alarm"
   }
-    
+  
   func setTime(hour: Int, minute: Int = 0, second: Int = 0) {
     var calendar = Calendar.current
     calendar.timeZone = .current

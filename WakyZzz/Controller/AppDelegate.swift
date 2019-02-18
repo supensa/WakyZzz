@@ -10,20 +10,23 @@ import UIKit
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   
-  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    UNUserNotificationCenter.current().delegate = self
+    
+    let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+    let alarmsViewController = storyboard.instantiateViewController(withIdentifier: "AlarmsViewController") as! AlarmsViewController
+    let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+    navigationController.viewControllers = [alarmsViewController]
+    
+    UNUserNotificationCenter.current().delegate = alarmsViewController
+    
+    window = UIWindow.init(frame: UIScreen.main.bounds)
+    window?.rootViewController = navigationController
+    window?.makeKeyAndVisible()
     return true
-  }
-  
-  func userNotificationCenter(_ center: UNUserNotificationCenter,
-                              willPresent notification: UNNotification,
-                              withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-    completionHandler([.alert, .sound])
   }
   
   func applicationWillResignActive(_ application: UIApplication) {

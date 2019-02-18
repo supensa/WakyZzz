@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jaS-xU-qrO">
+                                <rect key="frame" x="0.0" y="36" width="375" height="615"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wakyzzz-name-large" translatesAutoresizingMaskIntoConstraints="NO" id="QmA-hR-1Dc">
+                                        <rect key="frame" x="50" y="0.0" width="275" height="59"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="275" id="eZc-Xj-L8O"/>
+                                            <constraint firstAttribute="height" constant="59" id="fTu-TV-Ia0"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Wakyzzz-name-logo" translatesAutoresizingMaskIntoConstraints="NO" id="REY-4o-t8f">
+                                        <rect key="frame" x="0.0" y="120" width="375" height="375"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="REY-4o-t8f" secondAttribute="height" multiplier="1:1" id="eR1-tj-Yg1"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wakyzzz-name-tagline" translatesAutoresizingMaskIntoConstraints="NO" id="N8k-Gz-4dG">
+                                        <rect key="frame" x="50" y="556" width="275" height="59"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="275" id="lWh-gk-TLG"/>
+                                            <constraint firstAttribute="height" constant="59" id="ny6-39-nVX"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.49411764705882355" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jaS-xU-qrO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9JC-KK-jBr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jaS-xU-qrO" secondAttribute="bottom" constant="16" id="bQn-Ji-A46"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jaS-xU-qrO" secondAttribute="trailing" id="cCM-N9-nB4"/>
+                            <constraint firstItem="jaS-xU-qrO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="iu1-2T-eXY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Wakyzzz-name-large" width="741" height="160"/>
+        <image name="Wakyzzz-name-logo" width="720" height="720"/>
+        <image name="Wakyzzz-name-tagline" width="741" height="160"/>
+    </resources>
+</document>

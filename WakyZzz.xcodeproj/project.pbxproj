@@ -13,12 +13,16 @@
 		0424EB5B20BEF89100E15E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0424EB5A20BEF89100E15E46 /* Assets.xcassets */; };
 		0424EB5E20BEF89100E15E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0424EB5C20BEF89100E15E46 /* LaunchScreen.storyboard */; };
 		0424EB6920BEF93F00E15E46 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424EB6820BEF93F00E15E46 /* Alarm.swift */; };
-		0424EB6B20BEF96400E15E46 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424EB6A20BEF96400E15E46 /* Action.swift */; };
 		0424EB6D20BF022900E15E46 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424EB6C20BF022900E15E46 /* AlarmTableViewCell.swift */; };
 		0424EB6F20BF0FAE00E15E46 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424EB6E20BF0FAE00E15E46 /* AlarmViewController.swift */; };
 		5907E7EE21FB82F9000C779A /* AlarmUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5907E7ED21FB82F9000C779A /* AlarmUnitTest.swift */; };
-		59CF8A4122091148007E3339 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CF8A4022091148007E3339 /* NotificationsController.swift */; };
-		59CF8A4322091A67007E3339 /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 59CF8A4222091A67007E3339 /* sound.caf */; };
+		5924B9AD221711B8006AF68C /* ReminderNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5924B9AC221711B8006AF68C /* ReminderNotificationController.swift */; };
+		5962695E221603FF00F9E08B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5962695D221603FF00F9E08B /* Action.swift */; };
+		59679168221462F8001E656D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59679167221462F8001E656D /* Constant.swift */; };
+		5967917022148B72001E656D /* evil.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5967916F22148B72001E656D /* evil.caf */; };
+		5967917222149038001E656D /* high.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5967917122149038001E656D /* high.caf */; };
+		59CF8A4122091148007E3339 /* AlarmNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CF8A4022091148007E3339 /* AlarmNotificationController.swift */; };
+		59CF8A4322091A67007E3339 /* normal.caf in Resources */ = {isa = PBXBuildFile; fileRef = 59CF8A4222091A67007E3339 /* normal.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,14 +44,18 @@
 		0424EB5D20BEF89100E15E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0424EB5F20BEF89100E15E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0424EB6820BEF93F00E15E46 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
-		0424EB6A20BEF96400E15E46 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		0424EB6C20BF022900E15E46 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		0424EB6E20BF0FAE00E15E46 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		5907E7E221FB829F000C779A /* WakyZzzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakyZzzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5907E7E621FB829F000C779A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5907E7ED21FB82F9000C779A /* AlarmUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmUnitTest.swift; sourceTree = "<group>"; };
-		59CF8A4022091148007E3339 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
-		59CF8A4222091A67007E3339 /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.caf; sourceTree = "<group>"; };
+		5924B9AC221711B8006AF68C /* ReminderNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderNotificationController.swift; sourceTree = "<group>"; };
+		5962695D221603FF00F9E08B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		59679167221462F8001E656D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		5967916F22148B72001E656D /* evil.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = evil.caf; sourceTree = "<group>"; };
+		5967917122149038001E656D /* high.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = high.caf; sourceTree = "<group>"; };
+		59CF8A4022091148007E3339 /* AlarmNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNotificationController.swift; sourceTree = "<group>"; };
+		59CF8A4222091A67007E3339 /* normal.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = normal.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,18 +97,10 @@
 		0424EB5220BEF89000E15E46 /* WakyZzz */ = {
 			isa = PBXGroup;
 			children = (
-				59CF8A4222091A67007E3339 /* sound.caf */,
-				0424EB5320BEF89000E15E46 /* AppDelegate.swift */,
-				0424EB6820BEF93F00E15E46 /* Alarm.swift */,
-				59CF8A4022091148007E3339 /* NotificationsController.swift */,
-				0424EB6A20BEF96400E15E46 /* Action.swift */,
-				0424EB5520BEF89000E15E46 /* AlarmsViewController.swift */,
-				0424EB6E20BF0FAE00E15E46 /* AlarmViewController.swift */,
-				0424EB6C20BF022900E15E46 /* AlarmTableViewCell.swift */,
-				0424EB5720BEF89000E15E46 /* Main.storyboard */,
-				0424EB5A20BEF89100E15E46 /* Assets.xcassets */,
-				0424EB5C20BEF89100E15E46 /* LaunchScreen.storyboard */,
-				0424EB5F20BEF89100E15E46 /* Info.plist */,
+				59BD89F822145C7600CA2FFF /* Model */,
+				59BD89F722145C7000CA2FFF /* View */,
+				59BD89F622145C6500CA2FFF /* Controller */,
+				5967916622145D3A001E656D /* supporting files */,
 			);
 			path = WakyZzz;
 			sourceTree = "<group>";
@@ -112,6 +112,50 @@
 				5907E7E621FB829F000C779A /* Info.plist */,
 			);
 			path = WakyZzzTests;
+			sourceTree = "<group>";
+		};
+		5967916622145D3A001E656D /* supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				5962695D221603FF00F9E08B /* Action.swift */,
+				59679167221462F8001E656D /* Constant.swift */,
+				59CF8A4222091A67007E3339 /* normal.caf */,
+				5967917122149038001E656D /* high.caf */,
+				5967916F22148B72001E656D /* evil.caf */,
+				0424EB5A20BEF89100E15E46 /* Assets.xcassets */,
+				0424EB5F20BEF89100E15E46 /* Info.plist */,
+			);
+			path = "supporting files";
+			sourceTree = "<group>";
+		};
+		59BD89F622145C6500CA2FFF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0424EB5320BEF89000E15E46 /* AppDelegate.swift */,
+				0424EB5520BEF89000E15E46 /* AlarmsViewController.swift */,
+				0424EB6E20BF0FAE00E15E46 /* AlarmViewController.swift */,
+				59CF8A4022091148007E3339 /* AlarmNotificationController.swift */,
+				5924B9AC221711B8006AF68C /* ReminderNotificationController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		59BD89F722145C7000CA2FFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0424EB5C20BEF89100E15E46 /* LaunchScreen.storyboard */,
+				0424EB5720BEF89000E15E46 /* Main.storyboard */,
+				0424EB6C20BF022900E15E46 /* AlarmTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		59BD89F822145C7600CA2FFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0424EB6820BEF93F00E15E46 /* Alarm.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +209,11 @@
 					0424EB4F20BEF89000E15E46 = {
 						CreatedOnToolsVersion = 9.3.1;
 						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					5907E7E121FB829F000C779A = {
 						CreatedOnToolsVersion = 10.1;
@@ -197,8 +246,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5967917222149038001E656D /* high.caf in Resources */,
+				5967917022148B72001E656D /* evil.caf in Resources */,
 				0424EB5E20BEF89100E15E46 /* LaunchScreen.storyboard in Resources */,
-				59CF8A4322091A67007E3339 /* sound.caf in Resources */,
+				59CF8A4322091A67007E3339 /* normal.caf in Resources */,
 				0424EB5B20BEF89100E15E46 /* Assets.xcassets in Resources */,
 				0424EB5920BEF89000E15E46 /* Main.storyboard in Resources */,
 			);
@@ -221,9 +272,11 @@
 				0424EB5620BEF89000E15E46 /* AlarmsViewController.swift in Sources */,
 				0424EB6D20BF022900E15E46 /* AlarmTableViewCell.swift in Sources */,
 				0424EB6F20BF0FAE00E15E46 /* AlarmViewController.swift in Sources */,
+				59679168221462F8001E656D /* Constant.swift in Sources */,
+				5924B9AD221711B8006AF68C /* ReminderNotificationController.swift in Sources */,
 				0424EB5420BEF89000E15E46 /* AppDelegate.swift in Sources */,
-				59CF8A4122091148007E3339 /* NotificationsController.swift in Sources */,
-				0424EB6B20BEF96400E15E46 /* Action.swift in Sources */,
+				5962695E221603FF00F9E08B /* Action.swift in Sources */,
+				59CF8A4122091148007E3339 /* AlarmNotificationController.swift in Sources */,
 				0424EB6920BEF93F00E15E46 /* Alarm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,7 +438,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = WakyZzz/Info.plist;
+				DEVELOPMENT_TEAM = HT9N5JEKMU;
+				INFOPLIST_FILE = "$(SRCROOT)/WakyZzz/supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -393,7 +447,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.openclassrooms.WakyZzz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -402,7 +456,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = WakyZzz/Info.plist;
+				DEVELOPMENT_TEAM = HT9N5JEKMU;
+				INFOPLIST_FILE = "$(SRCROOT)/WakyZzz/supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -410,7 +465,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.openclassrooms.WakyZzz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

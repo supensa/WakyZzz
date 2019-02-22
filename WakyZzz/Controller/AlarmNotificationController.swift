@@ -35,7 +35,7 @@ class AlarmNotificationController {
   }
   
   func reset(alarmId: String,
-             repeatDays: [Bool],
+             repeatDays: [Bool] = [Bool](),
              dateComponents: DateComponents,
              type: SoundType = .normal) {
     self.removeAll(alarmId: alarmId)
@@ -88,12 +88,13 @@ class AlarmNotificationController {
   }
   
   private func isOneTime() -> Bool {
+    var bool = true
     for i in 0 ..< repeatDays.count {
       if repeatDays[i] {
-        return false
+        bool = false
       }
     }
-    return true
+    return bool
   }
   
   private func registerMultipleNotifications(dateComponents: DateComponents,
@@ -137,8 +138,9 @@ class AlarmNotificationController {
     notificationCenter.getNotificationSettings {
       (settings) in
       // Do not schedule notifications if not authorized.
-      guard settings.authorizationStatus == .authorized else { return }
-      self.addRequest(alarmId: alarmId, content: content, trigger: trigger)
+      if settings.authorizationStatus == .authorized {
+        self.addRequest(alarmId: alarmId, content: content, trigger: trigger)
+      }
     }
   }
   
@@ -158,9 +160,6 @@ class AlarmNotificationController {
           self.identifiers[alarmId] = [String]()
         }
         self.identifiers[alarmId]?.append(identifier)
-      } else {
-        // Otherwise handle any errors.
-        print(error.debugDescription)
       }
     }
   }

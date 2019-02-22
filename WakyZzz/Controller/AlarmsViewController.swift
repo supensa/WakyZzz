@@ -154,11 +154,16 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     return [delete, edit]
   }
   
+  // TODO: Comment
   func alarm(at indexPath: IndexPath) -> Alarm? {
-    return indexPath.row < alarms.count ? alarms[indexPath.row] : nil
+    var alarm: Alarm? = nil
+    if indexPath.row < alarms.count {
+      alarm = alarms[indexPath.row]
+    }
+    return alarm
   }
   
-  // TODO: Unit test
+  // TODO: Comment
   func deleteAlarm(at indexPath: IndexPath) {
     tableView.beginUpdates()
     let alarm = alarms.remove(at: indexPath.row)
@@ -167,23 +172,19 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     notificationsController.removeAll(alarmId: alarm.id)
   }
   
+  // TODO: Comment
   func editAlarm(at indexPath: IndexPath) {
     editingIndexPath = indexPath
     presentAlarmViewController(alarm: alarm(at: indexPath))
   }
   
+  // TODO: Comment
   func addAlarm(_ alarm: Alarm) {
     alarms.append(alarm)
     updateAlarms()
   }
   
-  // TODO: Check if useful function ?
-  func moveAlarm(from originalIndextPath: IndexPath, to targetIndexPath: IndexPath) {
-    let alarm = alarms.remove(at: originalIndextPath.row)
-    alarms.insert(alarm, at: targetIndexPath.row)
-    tableView.reloadData()
-  }
-  
+  // TODO: Comment
   func alarmCell(_ cell: AlarmTableViewCell, enabledChanged enabled: Bool) {
     if let indexPath = tableView.indexPath(for: cell),
       let alarm = self.alarm(at: indexPath) {
@@ -211,7 +212,7 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     self.editingIndexPath = nil
   }
   
-  // TODO: Unit testing Edit order of Alarms according to time
+  // TODO: Comment
   func alarmViewControllerDone(alarm: Alarm) {
     if alarm.enabled {
       notificationsController.reset(alarmId: alarm.id,
@@ -227,6 +228,7 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     editingIndexPath = nil
   }
   
+  // TODO: Comment
   func updateAlarms() {
     alarms = alarms.sorted(by: { self.ascendingTimeOrdering(firstDate: $0.date, secondDate: $1.date) })
   }
@@ -309,17 +311,20 @@ extension AlarmsViewController: UNUserNotificationCenterDelegate {
                                    from: newDate)
   }
   
+  // TODO: Comment
   func activateEvilMode() {
     playEvilSound()
     showKindnessAlert()
   }
   
+  // TODO: Comment
   func playEvilSound() {
     // infinite loop
     audioPlayer.numberOfLoops = -1
     audioPlayer.play()
   }
   
+  // TODO: Comment
   func showKindnessAlert() {
     let alert = UIAlertController.init(title: "Act of Kindness",
                                        message: "Please select an act of kindness",
@@ -348,17 +353,20 @@ extension AlarmsViewController: UNUserNotificationCenterDelegate {
     self.present(alert, animated: false, completion: nil)
   }
   
+  // TODO: Comment
   func evilLogic(taskTitle: String) {
     stopEvilSound()
     chooseTaskStatus(taskTitle: taskTitle)
   }
   
+  // TODO: Comment
   func stopEvilSound() {
     audioPlayer.currentTime = 0
     audioPlayer.stop()
     audioPlayer.prepareToPlay()
   }
   
+  // TODO: Comment
   func chooseTaskStatus(taskTitle: String) {
     let alert = UIAlertController.init(title: "Act of Kindness",
                                        message: "When will you perform this act of kindness ?",

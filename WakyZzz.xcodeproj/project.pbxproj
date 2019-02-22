@@ -16,13 +16,16 @@
 		0424EB6D20BF022900E15E46 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424EB6C20BF022900E15E46 /* AlarmTableViewCell.swift */; };
 		0424EB6F20BF0FAE00E15E46 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424EB6E20BF0FAE00E15E46 /* AlarmViewController.swift */; };
 		5907E7EE21FB82F9000C779A /* AlarmUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5907E7ED21FB82F9000C779A /* AlarmUnitTest.swift */; };
+		591A892D221E3F1600F74A60 /* evil.caf in Resources */ = {isa = PBXBuildFile; fileRef = 591A892C221E3F1600F74A60 /* evil.caf */; };
+		5920C30E221F322900A5C264 /* AlarmsViewControllerUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5920C30D221F322900A5C264 /* AlarmsViewControllerUnitTest.swift */; };
 		5924B9AD221711B8006AF68C /* ReminderNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5924B9AC221711B8006AF68C /* ReminderNotificationController.swift */; };
 		5962695E221603FF00F9E08B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5962695D221603FF00F9E08B /* Action.swift */; };
 		59679168221462F8001E656D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59679167221462F8001E656D /* Constant.swift */; };
-		5967917022148B72001E656D /* evil.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5967916F22148B72001E656D /* evil.caf */; };
 		5967917222149038001E656D /* high.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5967917122149038001E656D /* high.caf */; };
 		59CF8A4122091148007E3339 /* AlarmNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CF8A4022091148007E3339 /* AlarmNotificationController.swift */; };
 		59CF8A4322091A67007E3339 /* normal.caf in Resources */ = {isa = PBXBuildFile; fileRef = 59CF8A4222091A67007E3339 /* normal.caf */; };
+		59E5D758221DE824002A198B /* ReminderNotificationControllerUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5D757221DE824002A198B /* ReminderNotificationControllerUnitTest.swift */; };
+		59E5D75C221E0F62002A198B /* AlarmNotificationControllerUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5D75B221E0F62002A198B /* AlarmNotificationControllerUnitTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,13 +52,16 @@
 		5907E7E221FB829F000C779A /* WakyZzzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakyZzzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5907E7E621FB829F000C779A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5907E7ED21FB82F9000C779A /* AlarmUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmUnitTest.swift; sourceTree = "<group>"; };
+		591A892C221E3F1600F74A60 /* evil.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = evil.caf; sourceTree = "<group>"; };
+		5920C30D221F322900A5C264 /* AlarmsViewControllerUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsViewControllerUnitTest.swift; sourceTree = "<group>"; };
 		5924B9AC221711B8006AF68C /* ReminderNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderNotificationController.swift; sourceTree = "<group>"; };
 		5962695D221603FF00F9E08B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		59679167221462F8001E656D /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		5967916F22148B72001E656D /* evil.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = evil.caf; sourceTree = "<group>"; };
 		5967917122149038001E656D /* high.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = high.caf; sourceTree = "<group>"; };
 		59CF8A4022091148007E3339 /* AlarmNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNotificationController.swift; sourceTree = "<group>"; };
 		59CF8A4222091A67007E3339 /* normal.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = normal.caf; sourceTree = "<group>"; };
+		59E5D757221DE824002A198B /* ReminderNotificationControllerUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderNotificationControllerUnitTest.swift; sourceTree = "<group>"; };
+		59E5D75B221E0F62002A198B /* AlarmNotificationControllerUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNotificationControllerUnitTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +114,29 @@
 		5907E7E321FB829F000C779A /* WakyZzzTests */ = {
 			isa = PBXGroup;
 			children = (
-				5907E7ED21FB82F9000C779A /* AlarmUnitTest.swift */,
+				5920C30B221F31E200A5C264 /* Model */,
+				5920C30C221F31EC00A5C264 /* Controller */,
 				5907E7E621FB829F000C779A /* Info.plist */,
 			);
 			path = WakyZzzTests;
+			sourceTree = "<group>";
+		};
+		5920C30B221F31E200A5C264 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5907E7ED21FB82F9000C779A /* AlarmUnitTest.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5920C30C221F31EC00A5C264 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				59E5D757221DE824002A198B /* ReminderNotificationControllerUnitTest.swift */,
+				59E5D75B221E0F62002A198B /* AlarmNotificationControllerUnitTest.swift */,
+				5920C30D221F322900A5C264 /* AlarmsViewControllerUnitTest.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		5967916622145D3A001E656D /* supporting files */ = {
@@ -121,7 +146,7 @@
 				59679167221462F8001E656D /* Constant.swift */,
 				59CF8A4222091A67007E3339 /* normal.caf */,
 				5967917122149038001E656D /* high.caf */,
-				5967916F22148B72001E656D /* evil.caf */,
+				591A892C221E3F1600F74A60 /* evil.caf */,
 				0424EB5A20BEF89100E15E46 /* Assets.xcassets */,
 				0424EB5F20BEF89100E15E46 /* Info.plist */,
 			);
@@ -246,8 +271,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				591A892D221E3F1600F74A60 /* evil.caf in Resources */,
 				5967917222149038001E656D /* high.caf in Resources */,
-				5967917022148B72001E656D /* evil.caf in Resources */,
 				0424EB5E20BEF89100E15E46 /* LaunchScreen.storyboard in Resources */,
 				59CF8A4322091A67007E3339 /* normal.caf in Resources */,
 				0424EB5B20BEF89100E15E46 /* Assets.xcassets in Resources */,
@@ -285,7 +310,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5920C30E221F322900A5C264 /* AlarmsViewControllerUnitTest.swift in Sources */,
+				59E5D758221DE824002A198B /* ReminderNotificationControllerUnitTest.swift in Sources */,
 				5907E7EE21FB82F9000C779A /* AlarmUnitTest.swift in Sources */,
+				59E5D75C221E0F62002A198B /* AlarmNotificationControllerUnitTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

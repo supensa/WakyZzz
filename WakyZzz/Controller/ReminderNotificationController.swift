@@ -13,7 +13,7 @@ class ReminderNotificationController {
   
   func register(taskTitle: String) {
      // TODO: -Change Back to 1 hour
-    let dateComponents = dateComponentFromNow(seconds: 10)
+    let dateComponents = dateComponentFromNow(seconds: 60)
     
     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
     let content = createNotificationContent(taskTitle: taskTitle)
@@ -47,8 +47,9 @@ class ReminderNotificationController {
     notificationCenter.getNotificationSettings {
       (settings) in
       // Do not schedule notifications if not authorized.
-      guard settings.authorizationStatus == .authorized else { return }
-      self.addRequest(content: content, trigger: trigger)
+      if settings.authorizationStatus == .authorized {
+        self.addRequest(content: content, trigger: trigger)
+      }
     }
   }
   
@@ -61,12 +62,6 @@ class ReminderNotificationController {
     
     // Schedule the request with the system.
     let notificationCenter = UNUserNotificationCenter.current()
-    notificationCenter.add(request) {
-      (error) in
-      if let error = error {
-        // Handle any errors.
-        print(error.localizedDescription)
-      }
-    }
+    notificationCenter.add(request)
   }
 }

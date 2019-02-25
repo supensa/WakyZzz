@@ -23,7 +23,7 @@ class AlarmNotificationControllerUnitTest: XCTestCase {
     resetNotificationCenter()
   }
   
-  func testGivenNewAlarmNotification_WhenRegisterMultipleAlarmNotification_ThenNotificationRegistered() {
+  func testGivenNewAlarmNotification_WhenRegisterMultipleNotification_ThenNotificationRegistered() {
     let controller = AlarmNotificationController()
     let repeatDays = [true, true, true, true, true, true, true]
     var components = registerTestAlarm(controller: controller, repeatDays: repeatDays)
@@ -45,7 +45,7 @@ class AlarmNotificationControllerUnitTest: XCTestCase {
     }
   }
   
-  func testGivenNewAlarmNotification_WhenRegisterSingleAlarmNotification_ThenNotificationRegistered() {
+  func testGivenNewAlarmNotification_WhenRegisterSingleNotification_ThenNotificationRegistered() {
     let controller = AlarmNotificationController()
     let components = registerTestAlarm(controller: controller, type: .high)
     let center = UNUserNotificationCenter.current()
@@ -62,7 +62,7 @@ class AlarmNotificationControllerUnitTest: XCTestCase {
     }
   }
   
-  func testGivenRegisteredAlarmNotification_WhenResetAlarmNotification_ThenNotificationUpdated() {
+  func testGivenRegisteredAlarmNotification_WhenUpdateNotification_ThenNotificationUpdated() {
     let controller = AlarmNotificationController()
     var components = registerTestAlarm(controller: controller, type: .high)
     let center = UNUserNotificationCenter.current()
@@ -82,7 +82,7 @@ class AlarmNotificationControllerUnitTest: XCTestCase {
     usleep(100000)
     
     components = registerTestAlarm(controller: controller, type: .normal)
-    controller.reset(alarmId: alarmId, dateComponents: components)
+    controller.update(alarmId: alarmId, dateComponents: components)
     
     // Sleep for 0.1 sec
     usleep(100000)
@@ -99,7 +99,7 @@ class AlarmNotificationControllerUnitTest: XCTestCase {
     }
   }
   
-  func testGivenNewAlarmNotificationRegistered_WhenRemoveAlarmNotification_ThenNotificationRemoved() {
+  func testGivenNewAlarmNotificationRegistered_WhenRemoveNotification_ThenNotificationRemoved() {
     let controller = AlarmNotificationController()
     let _ = registerTestAlarm(controller: controller)
     controller.removeAll(alarmId: alarmId)

@@ -69,8 +69,8 @@ class AlarmUnitTest: XCTestCase {
   
   func testGivenNewAlarm_WhenSetWrongHour_ThenGetDefaultHour() {
     let hour = 25
-    let minute = 10
-    let second = 05
+    let minute = 12
+    let second = 34
     let alarm = Alarm()
     alarm.setTime(hour: hour, minute: minute, second: second)
     let date = alarm.date

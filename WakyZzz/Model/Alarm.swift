@@ -51,9 +51,9 @@ class Alarm {
     var components = calendar.dateComponents([.hour, .minute, .second, .day, .month, .year],
                                              from: date as Date)
     
-    components.hour = hour < 24 ? hour : 0
-    components.minute = minute < 60 ? minute : 0
-    components.second = second < 60 ? second : 0
+    components.hour = (0..<24).contains(hour) ? hour : 0
+    components.minute = (0..<60).contains(minute) ? minute : 0
+    components.second = (0..<60).contains(second) ? second : 0
     
     if let date = calendar.date(from: components) {
       self.date = date

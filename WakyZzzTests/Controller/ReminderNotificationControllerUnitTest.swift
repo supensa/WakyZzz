@@ -20,7 +20,7 @@ class ReminderNotificationControllerUnitTest: XCTestCase {
     resetNotificationCenter()
   }
   
-  func testGivenNewReminderNotification_WhenRegisterReminderNotification_ThenNotificationRegistered(){
+  func testGivenNewReminderNotification_WhenRegisterNotification_ThenNotificationRegistered(){
     let center = UNUserNotificationCenter.current()
     let controller = ReminderNotificationController()
     let taskTitle = "TEST"

@@ -215,7 +215,7 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   // TODO: Comment
   func alarmViewControllerDone(alarm: Alarm) {
     if alarm.enabled {
-      notificationsController.reset(alarmId: alarm.id,
+      notificationsController.update(alarmId: alarm.id,
                                     repeatDays: alarm.repeatDays,
                                     dateComponents: alarm.dateComponents)
     }

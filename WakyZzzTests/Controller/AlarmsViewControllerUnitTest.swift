@@ -23,7 +23,7 @@ class AlarmsViewControllerUnitTest: XCTestCase {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
   }
   
-  func testGivenAlarms_WhenLookForAlarmFromIndexPath_ThenGetAlarm() {    
+  func testGivenAlarms_WhenLookForAlarm_ThenGetAlarm() {
     var ids = [String]()
     var alarms = [Alarm]()
     
@@ -46,7 +46,7 @@ class AlarmsViewControllerUnitTest: XCTestCase {
     }
   }
   
-  func testGivenAlarms_WhenDeleteAlarmFrom_ThenAlarmDeleted() {
+  func testGivenAlarms_WhenDeleteAlarm_ThenAlarmDeleted() {
     var alarms = [Alarm]()
     let random = Int.random(in: 0...10)
     
@@ -75,7 +75,7 @@ class AlarmsViewControllerUnitTest: XCTestCase {
     XCTAssert(isAlarmMissing)
   }
   
-  func testGivenAlarms_WhenEditButtonPressedAlarmFrom_ThenGetCorrespondingIndexPathSaved() {
+  func testGivenAlarms_WhenEditButtonPressedAlarm_ThenGetCorrespondingIndexPathSaved() {
     var alarms = [Alarm]()
     let random = Int.random(in: 0...10)
     
@@ -157,7 +157,7 @@ class AlarmsViewControllerUnitTest: XCTestCase {
     XCTAssert(isSorted)
   }
   
-  func testWhenPlayEvilSound_ThenEvilSoundIsPlaying() {
+  func testGivenEvilSoundIsReady_WhenPlayEvilSound_ThenEvilSoundIsPlaying() {
     alarmsViewController.setupAudioPlayer()
     alarmsViewController.playEvilSound()
     XCTAssert(alarmsViewController.audioPlayer.isPlaying)

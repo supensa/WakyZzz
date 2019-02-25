@@ -34,7 +34,7 @@ class AlarmNotificationController {
     }
   }
   
-  func reset(alarmId: String,
+  func update(alarmId: String,
              repeatDays: [Bool] = [Bool](),
              dateComponents: DateComponents,
              type: SoundType = .normal) {

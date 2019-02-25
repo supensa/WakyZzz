@@ -40,7 +40,7 @@ class AlarmViewController: UIViewController, UITableViewDelegate, UITableViewDat
     tableView.delegate = self
     tableView.dataSource = self
     
-    datePicker.date = (alarm?.date)!
+    datePicker.setDate(alarm!.date, animated: false)
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {

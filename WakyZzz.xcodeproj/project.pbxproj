@@ -26,6 +26,7 @@
 		59CF8A4322091A67007E3339 /* normal.caf in Resources */ = {isa = PBXBuildFile; fileRef = 59CF8A4222091A67007E3339 /* normal.caf */; };
 		59E5D758221DE824002A198B /* ReminderNotificationControllerUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5D757221DE824002A198B /* ReminderNotificationControllerUnitTest.swift */; };
 		59E5D75C221E0F62002A198B /* AlarmNotificationControllerUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5D75B221E0F62002A198B /* AlarmNotificationControllerUnitTest.swift */; };
+		59FBD15522272FBB00FCF5B2 /* AppDelegateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FBD15422272FBB00FCF5B2 /* AppDelegateTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		59CF8A4222091A67007E3339 /* normal.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = normal.caf; sourceTree = "<group>"; };
 		59E5D757221DE824002A198B /* ReminderNotificationControllerUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderNotificationControllerUnitTest.swift; sourceTree = "<group>"; };
 		59E5D75B221E0F62002A198B /* AlarmNotificationControllerUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNotificationControllerUnitTest.swift; sourceTree = "<group>"; };
+		59FBD15422272FBB00FCF5B2 /* AppDelegateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				59E5D757221DE824002A198B /* ReminderNotificationControllerUnitTest.swift */,
 				59E5D75B221E0F62002A198B /* AlarmNotificationControllerUnitTest.swift */,
 				5920C30D221F322900A5C264 /* AlarmsViewControllerUnitTest.swift */,
+				59FBD15422272FBB00FCF5B2 /* AppDelegateTest.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59FBD15522272FBB00FCF5B2 /* AppDelegateTest.swift in Sources */,
 				5920C30E221F322900A5C264 /* AlarmsViewControllerUnitTest.swift in Sources */,
 				59E5D758221DE824002A198B /* ReminderNotificationControllerUnitTest.swift in Sources */,
 				5907E7EE21FB82F9000C779A /* AlarmUnitTest.swift in Sources */,

@@ -31,7 +31,6 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   func config() {
     tableView.delegate = self
     tableView.dataSource = self
-    populateAlarms()
     askNotificationAuthorization()
     setupNotificationActions()
     setupAudioPlayer()
@@ -104,25 +103,6 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
   }
   
-  func populateAlarms() {
-    var alarm: Alarm
-    // Weekdays 5am
-    alarm = Alarm()
-    alarm.setTime(hour: 5)
-    for i in 1 ... 5 {
-      alarm.repeatDays[i] = true
-    }
-    alarms.append(alarm)
-    
-    // Weekend 9am
-    alarm = Alarm()
-    alarm.setTime(hour: 9)
-    alarm.enabled = false
-    alarm.repeatDays[0] = true
-    alarm.repeatDays[6] = true
-    alarms.append(alarm)
-  }
-  
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
@@ -154,7 +134,7 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     return [delete, edit]
   }
   
-  // TODO: Comment
+  // Retrieve an alarm from the array
   func alarm(at indexPath: IndexPath) -> Alarm? {
     var alarm: Alarm? = nil
     if indexPath.row < alarms.count {
@@ -163,7 +143,7 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     return alarm
   }
   
-  // TODO: Comment
+  // Delete an alarm from the table view and the array
   func deleteAlarm(at indexPath: IndexPath) {
     tableView.beginUpdates()
     let alarm = alarms.remove(at: indexPath.row)
@@ -172,19 +152,19 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     notificationsController.removeAll(alarmId: alarm.id)
   }
   
-  // TODO: Comment
+  // Present AlarmViewController
   func editAlarm(at indexPath: IndexPath) {
     editingIndexPath = indexPath
     presentAlarmViewController(alarm: alarm(at: indexPath))
   }
   
-  // TODO: Comment
+  // Add new alarm to array
   func addAlarm(_ alarm: Alarm) {
     alarms.append(alarm)
     updateAlarms()
   }
   
-  // TODO: Comment
+  // Called when UISwitch is toggled
   func alarmCell(_ cell: AlarmTableViewCell, enabledChanged enabled: Bool) {
     if let indexPath = tableView.indexPath(for: cell),
       let alarm = self.alarm(at: indexPath) {
@@ -199,6 +179,7 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
   }
   
+  // Prepare AlarmViewController before being presented
   func presentAlarmViewController(alarm: Alarm?) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let popupViewController = storyboard.instantiateViewController(withIdentifier: "DetailNavigationController") as! UINavigationController
@@ -208,11 +189,12 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     present(popupViewController, animated: true, completion: nil)
   }
   
+  // Called when item "Cancel" has been tapped
   func alarmViewControllerCancel() {
     self.editingIndexPath = nil
   }
   
-  // TODO: Comment
+  // Called when item "Done" has been tapped
   func alarmViewControllerDone(alarm: Alarm) {
     if alarm.enabled {
       notificationsController.update(alarmId: alarm.id,
@@ -228,7 +210,7 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     editingIndexPath = nil
   }
   
-  // TODO: Comment
+  // Sort by time in ascending order the array
   func updateAlarms() {
     alarms = alarms.sorted(by: { self.ascendingTimeOrdering(firstDate: $0.date, secondDate: $1.date) })
   }
@@ -282,14 +264,14 @@ extension AlarmsViewController: UNUserNotificationCenterDelegate {
     case kNotificationNormalCategoryId:
       if response.actionIdentifier == kSnoozeAction {
         // Higher sound + different category
-        // TODO: Change back to a minute
-        let dateComponents = dateComponentsFromNow(seconds: 10)
+        let dateComponents = dateComponentsFromNow(seconds: 60)
         notificationsController.register(alarmId: alarmId, dateComponents: dateComponents, type: .high)
       }
       break
     case kNotificationHighCategoryId:
       if response.actionIdentifier == kSnoozeAction {
-        activateEvilMode()
+        playEvilSound()
+        showKindnessAlert()
       }
       break
     default:
@@ -311,20 +293,14 @@ extension AlarmsViewController: UNUserNotificationCenterDelegate {
                                    from: newDate)
   }
   
-  // TODO: Comment
-  func activateEvilMode() {
-    playEvilSound()
-    showKindnessAlert()
-  }
-  
-  // TODO: Comment
+  // Play in an infinite loop the evil sound
   func playEvilSound() {
     // infinite loop
     audioPlayer.numberOfLoops = -1
     audioPlayer.play()
   }
   
-  // TODO: Comment
+  // Show a selection of acts of kindness
   func showKindnessAlert() {
     let alert = UIAlertController.init(title: "Act of Kindness",
                                        message: "Please select an act of kindness",

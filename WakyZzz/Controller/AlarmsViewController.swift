@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import UserNotifications
 
-class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AlarmCellDelegate, AlarmViewControllerDelegate {
+class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   @IBOutlet weak var tableView: UITableView!
   
   var alarms = [Alarm]()
@@ -164,21 +164,6 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     updateAlarms()
   }
   
-  // Called when UISwitch is toggled
-  func alarmCell(_ cell: AlarmTableViewCell, enabledChanged enabled: Bool) {
-    if let indexPath = tableView.indexPath(for: cell),
-      let alarm = self.alarm(at: indexPath) {
-      if enabled {
-        notificationsController.register(alarmId: alarm.id,
-                                         repeatDays: alarm.repeatDays,
-                                         dateComponents: alarm.dateComponents)
-      } else {
-        notificationsController.removeAll(alarmId: alarm.id)
-      }
-      alarm.enabled = enabled
-    }
-  }
-  
   // Prepare AlarmViewController before being presented
   func presentAlarmViewController(alarm: Alarm?) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -187,27 +172,6 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     alarmViewController.alarm = alarm
     alarmViewController.delegate = self
     present(popupViewController, animated: true, completion: nil)
-  }
-  
-  // Called when item "Cancel" has been tapped
-  func alarmViewControllerCancel() {
-    self.editingIndexPath = nil
-  }
-  
-  // Called when item "Done" has been tapped
-  func alarmViewControllerDone(alarm: Alarm) {
-    if alarm.enabled {
-      notificationsController.update(alarmId: alarm.id,
-                                    repeatDays: alarm.repeatDays,
-                                    dateComponents: alarm.dateComponents)
-    }
-    if let _ = editingIndexPath {
-      updateAlarms()
-    } else {
-      addAlarm(alarm)
-    }
-    tableView.reloadData()
-    editingIndexPath = nil
   }
   
   // Sort by time in ascending order the array
@@ -244,7 +208,50 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   }
 }
 
+// Handle events from AlarmViewController
+extension AlarmsViewController: AlarmViewControllerDelegate {
+  // Called when item "Cancel" has been tapped
+  func alarmViewControllerCancel() {
+    self.editingIndexPath = nil
+  }
+  
+  // Called when item "Done" has been tapped
+  func alarmViewControllerDone(alarm: Alarm) {
+    if alarm.enabled {
+      notificationsController.update(alarmId: alarm.id,
+                                     repeatDays: alarm.repeatDays,
+                                     dateComponents: alarm.dateComponents)
+    }
+    if let _ = editingIndexPath {
+      updateAlarms()
+    } else {
+      addAlarm(alarm)
+    }
+    tableView.reloadData()
+    editingIndexPath = nil
+  }
+}
+
+// Handle event from AlarmTableViewCell
+extension AlarmsViewController: AlarmCellDelegate {
+  // Called when UISwitch is toggled
+  func alarmCell(_ cell: AlarmTableViewCell, enabledChanged enabled: Bool) {
+    if let indexPath = tableView.indexPath(for: cell),
+      let alarm = self.alarm(at: indexPath) {
+      if enabled {
+        notificationsController.register(alarmId: alarm.id,
+                                         repeatDays: alarm.repeatDays,
+                                         dateComponents: alarm.dateComponents)
+      } else {
+        notificationsController.removeAll(alarmId: alarm.id)
+      }
+      alarm.enabled = enabled
+    }
+  }
+}
+
 extension AlarmsViewController: UNUserNotificationCenterDelegate {
+  // Notification can be seen when the app is on foreground
   func userNotificationCenter(_ center: UNUserNotificationCenter,
                               willPresent notification: UNNotification,
                               withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -329,20 +336,21 @@ extension AlarmsViewController: UNUserNotificationCenterDelegate {
     self.present(alert, animated: false, completion: nil)
   }
   
-  // TODO: Comment
+  // Stop evil sound and choose status (now or later) for act of kindness
   func evilLogic(taskTitle: String) {
     stopEvilSound()
     chooseTaskStatus(taskTitle: taskTitle)
   }
   
-  // TODO: Comment
+  // Stop playing Evil sound and reset its playback point.
   func stopEvilSound() {
     audioPlayer.currentTime = 0
     audioPlayer.stop()
     audioPlayer.prepareToPlay()
   }
   
-  // TODO: Comment
+  // Let user decides whether to remind about the act of kindness previously selected
+  // if so, send a notification in 1 hour from now
   func chooseTaskStatus(taskTitle: String) {
     let alert = UIAlertController.init(title: "Act of Kindness",
                                        message: "When will you perform this act of kindness ?",

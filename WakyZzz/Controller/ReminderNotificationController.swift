@@ -11,9 +11,9 @@ import UserNotifications
 
 class ReminderNotificationController {
   
+  // Register a notification to show in an hour from now
   func register(taskTitle: String) {
-     // TODO: -Change Back to 1 hour
-    let dateComponents = dateComponentFromNow(seconds: 60)
+    let dateComponents = dateComponentFromNow(seconds: 3600)
     
     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
     let content = createNotificationContent(taskTitle: taskTitle)

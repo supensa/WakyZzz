@@ -15,6 +15,7 @@ enum SoundType {
 
 class AlarmNotificationController {
   
+  // Register notification(s) for specific alarm
   func register(alarmId: String,
                 repeatDays: [Bool] = [Bool](),
                 dateComponents: DateComponents,
@@ -34,6 +35,7 @@ class AlarmNotificationController {
     }
   }
   
+  // Update registered notifications for specific alarm
   func update(alarmId: String,
              repeatDays: [Bool] = [Bool](),
              dateComponents: DateComponents,
@@ -45,6 +47,7 @@ class AlarmNotificationController {
                   type: type)
   }
   
+  // Remove all notification for specific alarm
   func removeAll(alarmId: String) {
     // Remove scheduled request from Notification Center
     if let array = self.identifiers[alarmId] {

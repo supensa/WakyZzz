@@ -49,13 +49,13 @@ The user can delay his/her promise and can be reminded one hour later through us
 ## Landscape
 
 <p align="center">
-<img src="Images/landscape1.png" width="300">
-</p><br/>
+<img src="Images/landscape1.png">
+</p><br/><br/>
 
 <p align="center">
-<img src="Images/landscape2.png" width="300">
-</p><br/>
+<img src="Images/landscape2.png">
+</p><br/><br/>
 
 <p align="center">
-<img src="Images/landscape3.png" width="300">
-</p><br/>
+<img src="Images/landscape3.png">
+</p><br/><br/>

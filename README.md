@@ -31,8 +31,8 @@ When the alarm goes off the user can snooze it. After one minute the alarm goes 
 <img src="Images/portrait5.png" width="300">
 </p><br/>
 
-The second snooze will bring app in the foreground and an <i><u>"evil"<i/><u/> sound will be played in an infinite loop.<br/>
-The user needs to select an act of kindness in order to stop this <i><u>"evil"<i/><u/> sound.<br/>
+The second snooze will bring the app into the foreground and an <i><u>"evil"<u/><i/> sound will be played in an infinite loop.<br/>
+The user needs to select an act of kindness in order to stop this <i><u>"evil"<u/><i/> sound.<br/>
 
 <p align="center">
 <img src="Images/portrait6.png" width="300">

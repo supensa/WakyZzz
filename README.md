@@ -52,7 +52,7 @@ The user can delay his/her promise and can be reminded one hour later through us
 </p><br/><br/>
 
 <p align="center">
-<img src="Images/landscape2.png width="600">
+<img src="Images/landscape2.png" width="600">
 </p><br/><br/>
 
 <p align="center">

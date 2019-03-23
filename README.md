@@ -30,8 +30,8 @@ When the alarm goes off the user can snooze it. After one minute the alarm goes 
 <img src="Images/portrait5.png" width="300">
 </p><br/>
 
-The second snooze will bring the app into the foreground and an <i><em>"evil"</em></i> sound will be played in an infinite loop.<br/>
-The user needs to select an act of kindness in order to stop this <i><em>"evil"</em></i> sound.<br/>
+The second snooze will bring the app into the foreground and an <strong><em>"evil"</em></strong> sound will be played in an infinite loop.<br/>
+The user needs to select an act of kindness in order to stop this <strong><em>"evil"</em></strong> sound.<br/>
 
 <p align="center">
 <img src="Images/portrait6.png" width="300">
@@ -52,7 +52,7 @@ The user can delay his/her promise and can be reminded one hour later through us
 </p><br/><br/>
 
 <p align="center">
-<img src="Images/landscape2.png width="600"">
+<img src="Images/landscape2.png width="600">
 </p><br/><br/>
 
 <p align="center">

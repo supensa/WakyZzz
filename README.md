@@ -5,9 +5,8 @@
 This is an alarm application that uses local notification to alert the user.
 The user can set an alarm for a given time.<br/>
 This alarm can go off one time or every selected day of the week. (Sunday to Saturday)<br/>
-The alarms are sorted by time in an ascending order.<br/>
-
-
+The alarms are automatically sorted by time in an ascending order.<br/>
+Each alarm can be activated, updated or deleted.<br/>
 
 
 ## Portrait
@@ -31,8 +30,8 @@ When the alarm goes off the user can snooze it. After one minute the alarm goes 
 <img src="Images/portrait5.png" width="300">
 </p><br/>
 
-The second snooze will bring the app into the foreground and an <i><u>"evil"</u></i> sound will be played in an infinite loop.<br/>
-The user needs to select an act of kindness in order to stop this <i><u>"evil"</u></i> sound.<br/>
+The second snooze will bring the app into the foreground and an <i><em>"evil"</em></i> sound will be played in an infinite loop.<br/>
+The user needs to select an act of kindness in order to stop this <i><em>"evil"</em></i> sound.<br/>
 
 <p align="center">
 <img src="Images/portrait6.png" width="300">
